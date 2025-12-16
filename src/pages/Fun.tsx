@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Smile, X, RefreshCw, Plus, Trash2 } from 'lucide-react'
+import { Smile, X, Plus, Trash2 } from 'lucide-react'
 import { getRandomJoke, Joke } from '../services/jokeService'
 import Card from '../components/Card'
 import Button from '../components/Button'

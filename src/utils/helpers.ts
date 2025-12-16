@@ -28,7 +28,7 @@ export function debounce<T extends (...args: any[]) => any>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
-  let timeout: NodeJS.Timeout | null = null
+  let timeout: ReturnType<typeof setTimeout> | null = null
   
   return function executedFunction(...args: Parameters<T>) {
     const later = () => {
@@ -74,14 +74,14 @@ export function validateStyles(
     const computedStyle = window.getComputedStyle(element)
     
     // Basic validation - check if element has non-default positioning
-    const hasPosition = computedStyle.position !== 'static' || 
-                       computedStyle.position === 'relative' ||
-                       computedStyle.position === 'absolute'
+    const position = computedStyle.position
+    const hasPosition = position !== 'static' && 
+                       (position === 'relative' || position === 'absolute')
     
     // Check if display is not default block
-    const hasDisplay = computedStyle.display !== 'block' || 
-                     computedStyle.display === 'flex' ||
-                     computedStyle.display === 'grid'
+    const display = computedStyle.display
+    const hasDisplay = display !== 'block' && 
+                     (display === 'flex' || display === 'grid')
     
     // If expected styles provided, validate them
     if (expectedStyles) {

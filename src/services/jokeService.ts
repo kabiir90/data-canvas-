@@ -1,4 +1,3 @@
-import { API_ENDPOINTS } from '../utils/constants'
 import { getCache, setCache } from '../utils/cache'
 
 export interface Joke {

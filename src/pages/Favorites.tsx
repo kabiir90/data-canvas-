@@ -2,7 +2,7 @@ import { Heart, Globe, Newspaper, TrendingUp, Trophy, X } from 'lucide-react'
 import { useFavorites } from '../context/FavoritesContext'
 import Card from '../components/Card'
 import EmptyState from '../components/EmptyState'
-import { Favorite, Country, NewsArticle, CryptoCurrency, Match } from '../types'
+import { Country, NewsArticle, CryptoCurrency, Match } from '../types'
 import { formatNumber } from '../utils/helpers'
 
 export default function Favorites() {

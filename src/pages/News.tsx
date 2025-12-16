@@ -6,7 +6,6 @@ import { useFavorites } from '../context/FavoritesContext'
 import SearchBar from '../components/SearchBar'
 import Card from '../components/Card'
 import Button from '../components/Button'
-import LoadingSpinner from '../components/LoadingSpinner'
 import Skeleton from '../components/Skeleton'
 import EmptyState from '../components/EmptyState'
 import ErrorState from '../components/ErrorState'
@@ -32,7 +31,7 @@ export default function News() {
   const [selectedCountry, setSelectedCountry] = useState<string>('us')
   const [searchQuery, setSearchQuery] = useState('')
   const [page, setPage] = useState(1)
-  const [isPending, startTransition] = useTransition()
+  const [, startTransition] = useTransition()
 
   const { addFavorite, removeFavorite, isFavorite } = useFavorites()
 

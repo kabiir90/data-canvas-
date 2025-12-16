@@ -1,5 +1,5 @@
 import { useState, useEffect, useTransition, useMemo, useRef, useCallback } from 'react'
-import { Heart, MapPin, Users, Cloud, Globe, Clock, DollarSign, Languages, Thermometer, Droplets, Wind, Navigation } from 'lucide-react'
+import { Heart, MapPin, Users, Cloud, Globe, Clock, DollarSign, Languages, Droplets, Wind, Navigation } from 'lucide-react'
 import { Country, Weather } from '../types'
 import { getAllCountries, searchCountries, getCountriesByRegion, getCountryByCode } from '../services/countriesService'
 import { getWeatherByCity } from '../services/weatherService'
@@ -23,7 +23,6 @@ export default function CountryExplorer() {
   const [loadingRegion, setLoadingRegion] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [selectedRegion, setSelectedRegion] = useState<string>('All')
-  const [searchQuery, setSearchQuery] = useState<string>('')
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [loadingCountryDetails, setLoadingCountryDetails] = useState(false)
@@ -34,7 +33,7 @@ export default function CountryExplorer() {
   const lastLoadedRegionRef = useRef<string | null>(null) // Track last loaded region
 
   const { addFavorite, removeFavorite, isFavorite } = useFavorites()
-  const { lastSearchedCountry, setLastSearchedCountry } = useSession()
+  const { setLastSearchedCountry } = useSession()
 
   useEffect(() => {
     loadCountries()
@@ -113,8 +112,6 @@ export default function CountryExplorer() {
   }, [countries, selectedRegion])
 
   const handleSearch = useCallback(async (query: string) => {
-    setSearchQuery(query)
-    
     if (!query.trim()) {
       setLoadingRegion(false)
       isLoadingRef.current = false // Reset loading flag

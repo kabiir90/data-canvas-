@@ -111,7 +111,7 @@ export interface MatchDetail {
   away: string
   league: string
   category: string
-  date?: string
+  date?: string | number
   time?: string
   status?: string
   score?: {
@@ -123,6 +123,16 @@ export interface MatchDetail {
   lineups?: {
     home?: string[]
     away?: string[]
+  }
+  teams?: {
+    home?: {
+      name?: string
+      badge?: string
+    }
+    away?: {
+      name?: string
+      badge?: string
+    }
   }
 }
 

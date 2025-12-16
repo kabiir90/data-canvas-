@@ -6,8 +6,6 @@ import { getCache, setCache } from '../utils/cache'
 // Start with basic fields that are confirmed to work from the API example
 // Always include cca3 for country identification
 const COUNTRY_FIELDS_BASIC = 'name,flags,capital,population,cca3,cca2,region'
-// Extended fields for more details - using comma-separated format
-const COUNTRY_FIELDS_EXTENDED = 'name,flags,capital,population,region,subregion,cca2,cca3'
 
 export async function getAllCountries(): Promise<Country[]> {
   // Check cache first

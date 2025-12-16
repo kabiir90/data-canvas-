@@ -87,3 +87,4 @@ All API services are configured and ready to use:
 - CoinGecko has rate limits but no authentication required for basic usage.
 - Joke API is completely free with no rate limits for reasonable use.
 
+

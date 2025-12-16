@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import { createContext, useContext, useState, ReactNode } from 'react'
 import { STORAGE_KEYS } from '../utils/constants'
 import { getStorageItem, setStorageItem } from '../utils/helpers'
 
@@ -50,4 +50,5 @@ export function useSession() {
   }
   return context
 }
+
 

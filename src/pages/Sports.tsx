@@ -1,6 +1,6 @@
 import { useState, useEffect, useTransition, useMemo, useCallback } from 'react'
-import { Trophy, Calendar, Play, BarChart3, AlertCircle, Search, Clock, TrendingUp, Heart } from 'lucide-react'
-import { Match, MatchDetail } from '../types'
+import { Trophy, Calendar, Play, BarChart3, AlertCircle, Clock, Heart } from 'lucide-react'
+import { MatchDetail } from '../types'
 import { getSportCategories, getMatches, getMatchDetail, getResults } from '../services/sportsService'
 import { useFavorites } from '../context/FavoritesContext'
 import SearchBar from '../components/SearchBar'
@@ -205,8 +205,8 @@ export default function Sports() {
   }, [matches, searchQuery])
 
   // Format date helper
-  const formatMatchDate = useCallback((timestamp: number) => {
-    const date = new Date(timestamp)
+  const formatMatchDate = useCallback((timestamp: string | number) => {
+    const date = new Date(typeof timestamp === 'string' ? timestamp : timestamp)
     const now = new Date()
     const diff = date.getTime() - now.getTime()
     const days = Math.floor(diff / (1000 * 60 * 60 * 24))

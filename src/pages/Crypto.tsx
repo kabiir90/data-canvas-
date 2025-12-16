@@ -6,7 +6,6 @@ import { useFavorites } from '../context/FavoritesContext'
 import SearchBar from '../components/SearchBar'
 import Card from '../components/Card'
 import Button from '../components/Button'
-import LoadingSpinner from '../components/LoadingSpinner'
 import Skeleton from '../components/Skeleton'
 import EmptyState from '../components/EmptyState'
 import ErrorState from '../components/ErrorState'
@@ -19,7 +18,7 @@ export default function Crypto() {
   const [error, setError] = useState<string | null>(null)
   const [autoRefresh, setAutoRefresh] = useState(false)
   const [sortBy, setSortBy] = useState<'price' | 'change'>('price')
-  const [isPending, startTransition] = useTransition()
+  const [, startTransition] = useTransition()
 
   const { addFavorite, removeFavorite, isFavorite } = useFavorites()
 

@@ -144,13 +144,13 @@ export default function Images() {
         <EmptyState
           icon={<ImageIcon size={48} />}
           title="Start Your Image Search"
-          message="Enter a search term above to find beautiful images from Unsplash"
+          description="Enter a search term above to find beautiful images from Unsplash"
         />
       ) : images.length === 0 ? (
         <EmptyState
           icon={<Search size={48} />}
           title="No Images Found"
-          message={`No images found for "${searchQuery}". Try a different search term.`}
+          description={`No images found for "${searchQuery}". Try a different search term.`}
         />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 py-4">

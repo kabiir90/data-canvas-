@@ -31,7 +31,6 @@ export async function getNewsByCountry(
   
   if (!response.ok) {
     if (response.status === 429) {
-      const errorData = await response.json().catch(() => ({}))
       throw new Error('Rate limit exceeded. Please wait a moment before trying again. The free News API plan has limited requests per day.')
     }
     const errorData = await response.json().catch(() => ({}))
@@ -66,7 +65,6 @@ export async function searchNews(query: string, page: number = 1): Promise<NewsR
   
   if (!response.ok) {
     if (response.status === 429) {
-      const errorData = await response.json().catch(() => ({}))
       throw new Error('Rate limit exceeded. Please wait a moment before trying again. The free News API plan has limited requests per day.')
     }
     const errorData = await response.json().catch(() => ({}))
